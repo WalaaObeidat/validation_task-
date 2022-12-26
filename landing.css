@@ -21,10 +21,10 @@ body{
 }    */
 
 p{
-    color: white;
+    color: rgb(249, 245, 238);
    position: relative;
      top: 190px ;
-    margin-left: 150px;
+    margin-left: 160px;
     font-size: x-large;
 
 }
