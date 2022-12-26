@@ -47,10 +47,53 @@
         </div>
 
       </div>
+      <div class="col-sm-6 px-0 d-none d-sm-block">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
+          alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+      </div>
     </div>
   </div>
 </section>
 
 </body>
 </html>
+
+
+<?php
+require_once("config.php");
+$sql = "SELECT * FROM users";
+$conn->query($sql);
+$talab = ($conn->query($sql)) -> fetchAll(PDO::FETCH_ASSOC);
+// -> fetchAll(PDO::FETCH_ASSOC) لغى التكرار
+
+// $Flag = FALSE;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST"){
+  foreach($talab as $ele){
+    if ($ele["email"]=== $_POST["user_email_Login"] && $ele["password"] === $_POST["user_password_Login"]){
+    echo "<pre>";
+    print_r($ele);
+    echo "</pre>";
+        session_start();
+        $_SESSION["id"]= $ele["id"];
+        $_SESSION["name"]= $ele["name"];
+        $_SESSION["email"]= $ele["email"];
+        $_SESSION["phone"]= $ele["phone"];
+        $_SESSION["birthday_date"]= $ele["birthday_date"];
+        $_SESSION["password"]= $ele["password"];
+        $_SESSION["date_created"]= $ele["date_created"];
+        $_SESSION["date_last_login"]= $ele["date_last_login"];
+        $_SESSION["is_admin"]= $ele["is_admin"];
+      header("location: landpage.php");
+    }
+
+  };
+
+}
+// print_r($conn);
+// echo "<br>";
+
+// echo "<pre>";
+// print_r($conn->query($sql));
+// echo "</pre>";
 
