@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="landing.css">
 </head>
 <body>
-     
+    
+     <!-- <img id="logo" src="../logo.png"> -->
 
         <p>Doing the best at this moment puts you in the best place for the next moment</p>
         <div class="anckor">
-            <div><a class="Sign" href="signup.php">Sign up</a> </div><br>
+            <div><a class="Sign" href="registr.php">Sign up</a> </div><br>
             <a class="login" href="login.php">Log in</a>
         </div>
     </div>
